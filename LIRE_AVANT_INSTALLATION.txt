@@ -1,0 +1,11 @@
+MISE A JOUR DES COULEURS — RPE DANIEL ALIX
+
+1. Ouvrir https://github.com/Yossan28300/rpe-daniel-alix
+2. Cliquer Add file > Upload files.
+3. Glisser UNIQUEMENT le fichier style.css du présent dossier.
+4. Confirmer son remplacement et cliquer Commit changes.
+5. Attendre la publication Netlify, puis actualiser le site avec Ctrl+F5.
+
+Cette modification concerne seulement les couleurs et les formes.
+Ne pas remplacer les dossiers data, documents ou le fichier .pages.yml.
+Le formulaire Netlify Forms et Pages CMS ne sont pas modifiés.
