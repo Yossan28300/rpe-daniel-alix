@@ -1,0 +1,102 @@
+# Administration via https://app.pagescms.org/ — connexion GitHub requise.
+media:
+  - name: docs
+    label: Documents PDF
+    input: documents
+    output: /documents
+    extensions: [pdf]
+    rename: safe
+content:
+  - name: actualites
+    label: Actualités
+    type: file
+    path: data/actualites.json
+    format: json
+    list: true
+    fields:
+      - name: title
+        label: Titre
+        type: string
+        required: true
+      - name: date
+        label: Date affichée
+        type: string
+        description: Exemple — 12 novembre 2026
+      - name: text
+        label: Texte de l'actualité
+        type: text
+        required: true
+  - name: documents
+    label: Comptes rendus et PDF
+    type: file
+    path: data/documents.json
+    format: json
+    list: true
+    fields:
+      - name: title
+        label: Titre du document
+        type: string
+        required: true
+      - name: date
+        label: Date affichée
+        type: string
+      - name: url
+        label: Fichier PDF
+        type: file
+        required: true
+        options:
+          media: docs
+          extensions: [pdf]
+  - name: equipe
+    label: Équipe RPE
+    type: file
+    path: data/equipe.json
+    format: json
+    list: true
+    fields:
+      - name: name
+        label: Prénom et NOM
+        type: string
+        required: true
+      - name: status
+        label: Fonction
+        type: select
+        required: true
+        options:
+          values:
+            - value: Titulaire
+              label: Titulaire
+            - value: Suppléant
+              label: Suppléant
+            - value: À confirmer
+              label: À confirmer
+  - name: parametres
+    label: Informations générales
+    type: file
+    path: data/parametres.json
+    format: json
+    fields:
+      - name: schoolName
+        label: École
+        type: string
+      - name: city
+        label: Commune
+        type: string
+      - name: schoolYear
+        label: Année scolaire
+        type: string
+      - name: contactEmail
+        label: Adresse e-mail du groupe RPE
+        type: string
+      - name: teamIntro
+        label: Présentation de l’équipe
+        type: text
+      - name: nextMeeting
+        label: Date du prochain conseil
+        type: string
+      - name: meetingNote
+        label: Informations concernant le conseil
+        type: text
+      - name: readyForPublication
+        label: Informations vérifiées — masquer l'avertissement
+        type: boolean
