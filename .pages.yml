@@ -1,4 +1,5 @@
-# Administration du site RPE Daniel Alix — Pages CMS
+# RPE Daniel Alix : administration regroupée par les 4 pages du site.
+# Les noms, chemins et champs sont préservés pour ne pas perdre les contenus existants.
 media:
 - name: docs
   label: Documents PDF
@@ -8,102 +9,8 @@ media:
   - pdf
   rename: safe
 content:
-- name: actualites
-  label: Actualités
-  type: file
-  path: data/actualites.json
-  format: json
-  list: true
-  fields:
-  - name: title
-    label: Titre
-    type: string
-    required: true
-  - name: date
-    label: Date affichée
-    type: string
-    description: Exemple — 12 novembre 2026
-  - name: text
-    label: Texte de l'actualité
-    type: text
-    required: true
-- name: documents
-  label: Comptes rendus et PDF
-  type: file
-  path: data/documents.json
-  format: json
-  list: true
-  fields:
-  - name: title
-    label: Titre du document
-    type: string
-    required: true
-  - name: date
-    label: Date affichée
-    type: string
-  - name: url
-    label: Fichier PDF
-    type: file
-    required: true
-    options:
-      media: docs
-      extensions:
-      - pdf
-- name: equipe
-  label: Équipe RPE
-  type: file
-  path: data/equipe.json
-  format: json
-  list: true
-  fields:
-  - name: name
-    label: Prénom et NOM
-    type: string
-    required: true
-  - name: status
-    label: Fonction
-    type: select
-    required: true
-    options:
-      values:
-      - value: Titulaire
-        label: Titulaire
-      - value: Suppléant
-        label: Suppléant
-      - value: À confirmer
-        label: À confirmer
-- name: parametres
-  label: Informations générales
-  type: file
-  path: data/parametres.json
-  format: json
-  fields:
-  - name: schoolName
-    label: École
-    type: string
-  - name: city
-    label: Commune
-    type: string
-  - name: schoolYear
-    label: Année scolaire
-    type: string
-  - name: contactEmail
-    label: Adresse e-mail du groupe RPE
-    type: string
-  - name: teamIntro
-    label: Présentation de l’équipe
-    type: text
-  - name: nextMeeting
-    label: Date du prochain conseil
-    type: string
-  - name: meetingNote
-    label: Informations concernant le conseil
-    type: text
-  - name: readyForPublication
-    label: Informations vérifiées — masquer l'avertissement
-    type: boolean
 - name: contenu_index
-  label: Page d’accueil
+  label: 01 · Accueil — textes
   type: file
   path: data/contenu_index.json
   format: json
@@ -159,8 +66,82 @@ content:
   - name: texte_17
     label: Texte de l’objectif
     type: text
+- name: parametres
+  label: 01 · Accueil — informations pratiques
+  type: file
+  path: data/parametres.json
+  format: json
+  fields:
+  - name: schoolName
+    label: École
+    type: string
+  - name: city
+    label: Commune
+    type: string
+  - name: schoolYear
+    label: Année scolaire
+    type: string
+  - name: contactEmail
+    label: Adresse e-mail du groupe RPE
+    type: string
+  - name: teamIntro
+    label: Présentation de l’équipe
+    type: text
+  - name: nextMeeting
+    label: Date du prochain conseil
+    type: string
+  - name: meetingNote
+    label: Informations concernant le conseil
+    type: text
+  - name: readyForPublication
+    label: Informations vérifiées — masquer l'avertissement
+    type: boolean
+- name: equipe
+  label: 02 · Les RPE — ajouter / modifier des membres
+  type: file
+  path: data/equipe.json
+  format: json
+  list: true
+  fields:
+  - name: name
+    label: Prénom et NOM
+    type: string
+    required: true
+  - name: status
+    label: Fonction
+    type: select
+    required: true
+    options:
+      values:
+      - value: Titulaire
+        label: Titulaire
+      - value: Suppléant
+        label: Suppléant
+      - value: À confirmer
+        label: À confirmer
+- name: contenu_equipe
+  label: 02 · Les RPE — présentation
+  type: file
+  path: data/contenu_equipe.json
+  format: json
+  fields:
+  - name: titre_01
+    label: Titre de la page
+    type: string
+  - name: texte_02
+    label: Introduction de la page
+    type: text
+  - name: rubrique_03
+    label: Titre de la rubrique 1
+    type: string
+  - name: texte_04
+    label: Présentation de l’équipe
+    type: text
+  - name: texte_05
+    label: Informations sur les représentants
+    type: text
 - name: contenu_role
-  label: Page Notre rôle
+  label: 02 · Les RPE — rôle
   type: file
   path: data/contenu_role.json
   format: json
@@ -202,7 +183,7 @@ content:
     label: Texte sur le bénévolat
     type: text
 - name: contenu_priorites
-  label: Page Nos priorités
+  label: 02 · Les RPE — engagements
   type: file
   path: data/contenu_priorites.json
   format: json
@@ -255,10 +236,51 @@ content:
   - name: texte_16
     label: Texte de l’objectif
     type: text
-- name: contenu_equipe
-  label: Page Notre équipe
+- name: actualites
+  label: 03 · Actualités — ajouter / modifier
   type: file
-  path: data/contenu_equipe.json
+  path: data/actualites.json
+  format: json
+  list: true
+  fields:
+  - name: title
+    label: Titre
+    type: string
+    required: true
+  - name: date
+    label: Date affichée
+    type: string
+    description: Exemple — 12 novembre 2026
+  - name: text
+    label: Texte de l'actualité
+    type: text
+    required: true
+- name: documents
+  label: 03 · Documents PDF — ajouter / modifier
+  type: file
+  path: data/documents.json
+  format: json
+  list: true
+  fields:
+  - name: title
+    label: Titre du document
+    type: string
+    required: true
+  - name: date
+    label: Date affichée
+    type: string
+  - name: url
+    label: Fichier PDF
+    type: file
+    required: true
+    options:
+      media: docs
+      extensions:
+      - pdf
+- name: contenu_actualites
+  label: 03 · Actualités — présentation
+  type: file
+  path: data/contenu_actualites.json
   format: json
   fields:
   - name: titre_01
@@ -271,13 +293,10 @@ content:
     label: Titre de la rubrique 1
     type: string
   - name: texte_04
-    label: Présentation de l’équipe
-    type: text
-  - name: texte_05
-    label: Informations sur les représentants
+    label: Description de la rubrique 1
     type: text
 - name: contenu_conseils
-  label: Page Conseils d’école
+  label: 03 · Documents — présentation
   type: file
   path: data/contenu_conseils.json
   format: json
@@ -300,26 +319,8 @@ content:
   - name: texte_06
     label: Texte encadré
     type: text
-- name: contenu_actualites
-  label: Page Actualités
-  type: file
-  path: data/contenu_actualites.json
-  format: json
-  fields:
-  - name: titre_01
-    label: Titre de la page
-    type: string
-  - name: texte_02
-    label: Introduction de la page
-    type: text
-  - name: rubrique_03
-    label: Titre de la rubrique 1
-    type: string
-  - name: texte_04
-    label: Description de la rubrique 1
-    type: text
 - name: contenu_contact
-  label: Page Contact et repères utiles
+  label: 04 · Contact — textes et repères utiles
   type: file
   path: data/contenu_contact.json
   format: json
@@ -348,9 +349,8 @@ content:
   - name: repere_08
     label: Repère utile 4
     type: text
-
 - name: suivi
-  label: Suivi des questions collectives
+  label: 04 · Suivi des sujets — ajouter / modifier
   type: file
   path: data/suivi.json
   format: json
