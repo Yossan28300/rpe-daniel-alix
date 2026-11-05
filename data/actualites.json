@@ -1,7 +1,12 @@
 [
   {
-    "date": "Novembre 2026",
     "title": "Bienvenue sur l’espace des parents d’élèves",
+    "date": "Novembre 2026",
     "text": "Retrouvez ici les informations pratiques et les moyens de contacter vos représentants."
+  },
+  {
+    "title": "Test de publication",
+    "date": "05/11/2026",
+    "text": "Test"
   }
 ]
