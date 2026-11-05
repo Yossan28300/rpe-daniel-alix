@@ -1,0 +1,21 @@
+MISE À JOUR : 4 RUBRIQUES — ÉCOLE DANIEL ALIX
+
+OBJECTIF
+Navigation : Accueil / Les RPE / Actualités et documents / Contact et échanges.
+Les anciennes URL redirigent vers les bonnes nouvelles rubriques.
+Les actualités, documents, membres et formulaire Netlify restent en service.
+
+INSTALLATION SANS ÉCRASER LES DONNÉES
+Dans le ZIP MAJ_RPE_4_Rubriques_SANS_DONNEES.zip, décompresser, puis transférer dans le dépôt GitHub tous les fichiers HTML + site.js + style.css.
+Valider le commit ; Netlify redéploiera automatiquement.
+Ne PAS modifier le dossier data/ existant, les fichiers PDF, .pages.yml ou configuration.js.
+
+MODIFICATIONS DANS PAGES CMS
+La page « Les RPE » conserve les champs des anciennes pages Rôle, Priorités, Équipe.
+La page « Actualités et documents » conserve les champs des pages Actualités et Conseils.
+La page « Contact et échanges » conserve Contact et Suivi.
+Les champs de la page d’accueil correspondant aux quatre cartes sont :
+sous_titre_04/texte_10, sous_titre_05/texte_11, sous_titre_06/texte_12, sous_titre_07/texte_13.
+Après mise à jour, les anciens contenus personnalisés de ces champs peuvent remplacer les nouveaux intitulés. À modifier au besoin dans Pages CMS > Page d’accueil.
+
+ATTENTION : la page de remerciement et le nom Netlify du formulaire contact-rpe restent inchangés.

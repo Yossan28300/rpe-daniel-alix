@@ -3,16 +3,34 @@ const $=id=>document.getElementById(id);
 // Contenu éditorial de chaque page : modification depuis Pages CMS, sans changer le HTML.
 const cmsPage=document.body.dataset.pageCms;
 if(cmsPage && (location.protocol==='http:' || location.protocol==='https:')){
- try {
-  const r=await fetch('data/contenu_'+cmsPage+'.json',{cache:'no-store'});
-  if(r.ok){
+ const contentSources = [...new Set([...document.querySelectorAll('[data-cms-key]')].map(el=>el.closest('[data-cms-source]')?.dataset.cmsSource || cmsPage))];
+ for(const source of contentSources){
+  if(!source) continue;
+  try {
+   const r=await fetch('data/contenu_'+source+'.json',{cache:'no-store'});
+   if(!r.ok)continue;
    const values=await r.json();
    document.querySelectorAll('[data-cms-key]').forEach(el=>{
+    const assigned=el.closest('[data-cms-source]')?.dataset.cmsSource || cmsPage;
+    if(assigned!==source)return;
     const value=values[el.dataset.cmsKey];
-    if(typeof value==='string')el.textContent=value;
+    if(typeof value==='string'){
+     const migration={
+       'sous_titre_04':{'Notre rôle':'Les représentants'},
+       'sous_titre_05':{'Nos priorités':'Actualités et documents'},
+       'sous_titre_06':{'Notre équipe':'Contact et échanges'},
+       'sous_titre_07':{'Conseils et PDF':'Prochain conseil'},
+       'texte_10':{'Comprendre ce que font les représentants des parents d’élèves.':'Notre équipe, notre rôle et nos engagements.'},
+       'texte_11':{'Nos engagements pour les enfants et les familles.':'Informations, conseils d’école et PDF à télécharger.'},
+       'texte_12':{'Découvrir les titulaires et les suppléants.':'Vos questions, suggestions et sujets suivis.'},
+       'texte_13':{'Dates, comptes rendus et documents à télécharger.':'Voir la date et transmettre une question.'}
+     };
+     const text=(cmsPage==='index' && migration[el.dataset.cmsKey]?.[value])||value;
+     el.textContent=text;
+    }
    });
-  }
- }catch(err){console.warn('Contenu éditorial indisponible',err)}
+  }catch(err){console.warn('Contenu éditorial indisponible',source,err)}
+ }
 }
 
 const old=window.RPE_CONFIG||{};
