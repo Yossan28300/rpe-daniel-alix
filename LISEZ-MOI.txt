@@ -1,0 +1,28 @@
+PORTAIL RPE DANIEL ALIX — VERSION ADMINISTRABLE
+===============================================
+
+Le site comporte 7 pages HTML. Il est prêt pour Pages CMS et un hébergement Netlify relié à GitHub.
+
+POUR ACTIVER L’ADMINISTRATION (UNE FOIS POUR TOUTES)
+1. Créez un dépôt GitHub, idéalement réservé à l’équipe et privé, et importez à la racine TOUS les fichiers de ce dossier, y compris le fichier caché .pages.yml.
+2. Dans Netlify, utilisez « Add new project » > « Import an existing project » > GitHub. Sélectionnez ce dépôt. Site statique : pas de commande de build ; répertoire de publication : racine (.). IMPORTANT : ne faites pas un simple dépôt manuel de ZIP avec Netlify Drop si vous voulez des mises à jour automatiques.
+3. Connectez-vous sur https://app.pagescms.org avec votre compte GitHub, autorisez l’application Pages CMS pour ce dépôt et sélectionnez votre dépôt. Le fichier .pages.yml configure automatiquement les formulaires.
+4. Modifiez « Actualités », « Comptes rendus et PDF », « Équipe RPE » ou « Informations générales ». Enregistrez. Pages CMS écrit les modifications sur GitHub. Netlify republie le site.
+5. Pour donner accès à un autre représentant, donnez-lui un accès GitHub adapté sur le dépôt et configurez l’accès Pages CMS en conséquence.
+
+AJOUTER UN PDF
+Dans Pages CMS > « Comptes rendus et PDF » > ajouter une entrée > saisir titre et date > choisir/téléverser PDF dans le champ « Fichier PDF » > enregistrer. Le PDF sera stocké dans /documents. Vérifiez qu’il ne contient pas de données personnelles ou confidentielles avant publication.
+
+AJOUTER UNE ACTUALITÉ
+Pages CMS > « Actualités » > ajouter un élément > remplir titre, date et texte > enregistrer.
+
+METTRE À JOUR L’ÉQUIPE
+Pages CMS > « Équipe RPE » > modifier les noms et fonctions > enregistrer. Certains prénoms/fonctions sont encore à confirmer.
+
+IMPORTANT
+- Le site n’est PAS en ligne et l’administration ne fonctionne PAS avant connexion à GitHub + Netlify + Pages CMS.
+- Le fichier index.html s’ouvre en local et utilise alors configuration.js comme démonstration de secours ; les modifications faites dans Pages CMS sont visibles sur le site publié, pas forcément dans cette copie locale.
+- Le formulaire de contact prépare un e-mail, il n’envoie pas de message tant que l’adresse commune n’est pas configurée.
+- Ne rendez pas le dépôt public si vous préférez garder les brouillons privés ; seuls les contenus publiés sont visibles sur le site Netlify.
+- .pages.yml est un fichier caché sur certains systèmes : il doit impérativement être importé à la racine du dépôt.
+- La mise en ligne et les autorisations GitHub nécessitent une action du propriétaire du compte.

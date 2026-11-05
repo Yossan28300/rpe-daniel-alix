@@ -1,0 +1,3 @@
+Déposez ici les PDF autorisés à être publiés. Exemple : compte-rendu-novembre-2026.pdf
+Puis ajoutez leur nom dans configuration.js, dans la rubrique documents.
+Ne publiez aucune donnée personnelle sur les enfants.
