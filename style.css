@@ -79,3 +79,23 @@ body{background:linear-gradient(180deg,#fffcf2 0%,#fffdf9 45%,#f3fbf7 100%);}
 .field input:focus,.field textarea:focus,.field select:focus{outline:3px solid #c2e9d9;border-color:#148675;}
 .footer{background:#e6f3ed;border-top:5px solid #d3e5cf;color:#355563;}
 @media(prefers-reduced-motion:reduce){.btn,.card,.nav a{transition:none}.btn:hover,.card:hover{transform:none}}
+
+/* THÈME VERT PASTEL — en-tête et bandeaux de toutes les pages */
+:root{--navy:#315b4c;--dark:#25483b;--teal:#377a63;--cream:#fbfdf9;--ink:#254239;--muted:#536b61;--line:#dceadf;--accent:#e3f5e9}
+.sitehead{background:#dff2e5;color:#294c3e;border-bottom:3px solid #b4dfc5}
+.brand{color:#294c3e}
+.logo{background:#fff6d7;color:#356653;box-shadow:0 3px 0 #d4e4b6}
+.nav a{color:#2d5645}
+.nav a:hover,.nav a:focus-visible{color:#214532;background:#c6e7d2}
+.nav a.active{color:#214532;border-color:#75b99a}
+.hero,.pagehero{background:radial-gradient(circle at 89% 18%,#fff5d9 0 14%,transparent 14.5%),radial-gradient(circle at 76% 93%,#cae8d3 0 13%,transparent 13.5%),linear-gradient(125deg,#e2f5e8 0%,#d9f0e1 55%,#f2f8dc 100%);color:#284b3d}
+.hero h1,.pagehero h1{color:#25483b}
+.hero p,.pagehero p{color:#3b5e50}
+.hero:after{color:#ebbd6688}
+.eyebrow{background:#fff3cd;color:#486045;box-shadow:none}
+.btn.light{background:#fff5cd;color:#314c3d}
+.btn.outline{background:#ffffff9c;color:#2d5b45;border:2px solid #81b69a}
+.breadcrumb{color:#4c6e5b}
+.breadcrumb a{color:#285c44}
+.section h2{color:#2d5845}
+.objective h3,.team-group h3,.suivi-item h3{color:#315c4a}
