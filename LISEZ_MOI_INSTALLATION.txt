@@ -1,0 +1,16 @@
+MISE À JOUR RPE : CONTACT + SUIVI DES SUJETS
+
+Ce ZIP contient uniquement des fichiers de pages, le CSS, le JS, la configuration .pages.yml et un nouveau fichier data/suivi.json.
+Il NE contient PAS vos actualités, votre liste des représentants, vos documents PDF ni vos paramètres existants.
+
+1. Décompresser.
+2. Sur GitHub, dans le dépôt Yossan28300/rpe-daniel-alix, utiliser Add file > Upload files, déposer les fichiers et conserver les sous-dossiers. Accepter le remplacement des fichiers existants.
+3. Commit changes.
+4. Dans Netlify, vérifier que Forms > Form detection est activé. Au besoin activer et lancer un nouveau déploiement de production APRÈS activation.
+5. Vérifier l’existence de contact-rpe dans Netlify > Forms.
+6. Faire un test avec un message sans données personnelles, puis vérifier réception dans Netlify > Forms > contact-rpe.
+7. Dans Pages CMS, actualiser : la nouvelle rubrique Suivi des questions collectives devrait apparaître.
+8. Ajouter un sujet fictif non sensible pour tester, puis le supprimer.
+
+IMPORTANT : le site et Pages CMS ne publient PAS automatiquement les messages privés des familles. Ne recopiez dans Suivi que des thèmes collectifs sans identité.
+IMPORTANT : si vous avez personnalisé .pages.yml, comparez avant de remplacer : ce ZIP comprend la configuration de référence plus la rubrique Suivi.

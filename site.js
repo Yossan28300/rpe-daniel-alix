@@ -45,10 +45,27 @@ if($('documents')){
  if(!count)list.innerHTML='<div class="empty">Aucun PDF publié pour le moment.</div>';
 }
 if($('news-list')){const list=$('news-list');list.replaceChildren();const entries=Array.isArray(news)?news:[];for(const n of entries){const item=document.createElement('article');item.className='news';const date=document.createElement('small');date.className='muted';date.textContent=n.date||'';const h=document.createElement('h3');h.textContent=n.title||'';const p=document.createElement('p');p.textContent=n.text||'';item.append(date,h,p);list.appendChild(item)}if(!entries.length)list.innerHTML='<p class="muted">Aucune actualité publiée pour le moment.</p>'}
-if($('contact-form')){
- if(c.contactEmail&&/^\S+@\S+\.\S+$/.test(c.contactEmail)){$('email-message').replaceChildren();$('email-message').append('Écrivez-nous à ');const a=document.createElement('a');a.href='mailto:'+c.contactEmail;a.textContent=c.contactEmail;$('email-message').append(a)}
- else{$('send-btn').disabled=true;$('send-btn').title='Adresse e-mail non renseignée';$('noemail').classList.remove('hide')}
- $('contact-form').addEventListener('submit',e=>{e.preventDefault();if(!c.contactEmail)return;const subject=$('subject').value.trim(),msg=$('message').value.trim();if(!subject||!msg)return;const body=[msg,'','---','Nom : '+($('sender').value.trim()||'Non indiqué'),'Email de réponse : '+($('reply').value.trim()||'Non indiqué')].join('\n');location.href='mailto:'+c.contactEmail+'?subject='+encodeURIComponent('[RPE] '+subject)+'&body='+encodeURIComponent(body)})
+if($('contact-form') && c.contactEmail && /^\S+@\S+\.\S+$/.test(c.contactEmail)){const p=$('email-message'); if(p){p.append(' Vous pouvez aussi écrire à '); const a=document.createElement('a');a.href='mailto:'+c.contactEmail;a.textContent=c.contactEmail;p.append(a)}}
+if($('suivi-list')){
+ const el=$('suivi-list'); el.replaceChildren();
+ if(location.protocol==='http:'||location.protocol==='https:'){
+  try{
+   const r=await fetch('data/suivi.json',{cache:'no-store'});
+   if(!r.ok)throw new Error('Suivi indisponible');
+   const items=await r.json();
+   if(Array.isArray(items)){
+    for(const item of items){
+     if(!item.title || item.published===false)continue;
+     const article=document.createElement('article');article.className='suivi-item';
+     const h=document.createElement('h3');h.textContent=item.title;
+     const status=document.createElement('span');status.className='suivi-status';status.textContent=item.status||'Reçu';
+     const p=document.createElement('p');p.textContent=item.detail||'';
+     article.append(h,status,p); el.append(article);
+    }
+   }
+  }catch(e){console.warn('Suivi non disponible',e)}
+ }
+ if(!el.children.length){const info=document.createElement('p');info.className='empty';info.textContent='Aucun sujet collectif publié pour le moment.';el.append(info)}
 }
 if(c.readyForPublication===true&&$('demo-note'))$('demo-note').classList.add('hide');
 })();

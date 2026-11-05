@@ -3,3 +3,13 @@
 
 /* Navigation et documents multipages */
 .nav a.active{color:#fff;border-bottom:2px solid #92ded2;padding-bottom:4px;font-weight:750}.pagehero{background:linear-gradient(130deg,#193e5f,#215f71);color:white;padding:52px 0 58px}.pagehero h1{font-size:clamp(2rem,5vw,3rem);line-height:1.15;margin:14px 0 10px}.pagehero p{max-width:700px;color:#e4eef2;margin:0}.breadcrumb{font-size:.89rem;color:#d1e7e9}.breadcrumb a{color:white}.page-content{min-height:43vh}.linkcard{display:block;text-decoration:none;color:var(--ink);transition:transform .15s,box-shadow .15s}.linkcard:hover{transform:translateY(-3px);box-shadow:0 7px 22px #092c4222}.linkcard .more{display:inline-block;margin-top:14px;color:var(--teal);font-weight:750}.doclist{display:grid;gap:12px}.docitem{display:flex;align-items:center;justify-content:space-between;gap:20px;border:1px solid var(--line);background:white;border-radius:13px;padding:16px 19px}.docitem strong{display:block}.docitem small{color:var(--muted)}.docitem .btn{flex-shrink:0}.empty{background:#fff;padding:20px;border:1px dashed #b9c9ce;border-radius:13px;color:var(--muted)}.backlink{display:inline-block;margin:25px 0 0}.sitehead .top{min-height:78px}@media(max-width:650px){.docitem{align-items:flex-start;flex-direction:column}.docitem .btn{width:100%}}
+/* Formulaire public et suivi des demandes */
+.field select{border:1px solid #a9b9c2;border-radius:9px;padding:10px 12px;width:100%;background:#fff;color:var(--ink);font:inherit}
+.honeypot{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+.consent{display:flex;gap:11px;align-items:flex-start;font-size:.88rem;line-height:1.45}
+.consent input{margin-top:5px;flex-shrink:0}
+.suivi-items{display:grid;gap:14px;margin-top:20px}
+.suivi-item{background:white;border:1px solid var(--line);border-radius:14px;padding:21px}
+.suivi-item h3{margin:0 0 9px;color:var(--navy)}
+.suivi-status{display:inline-block;font-size:.8rem;background:#ecf7f5;color:#175d59;border-radius:20px;padding:3px 11px;font-weight:700}
+.suivi-item p{margin:12px 0 0;white-space:pre-wrap}
