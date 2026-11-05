@@ -1,5 +1,20 @@
 (async()=>{
 const $=id=>document.getElementById(id);
+// Contenu éditorial de chaque page : modification depuis Pages CMS, sans changer le HTML.
+const cmsPage=document.body.dataset.pageCms;
+if(cmsPage && (location.protocol==='http:' || location.protocol==='https:')){
+ try {
+  const r=await fetch('data/contenu_'+cmsPage+'.json',{cache:'no-store'});
+  if(r.ok){
+   const values=await r.json();
+   document.querySelectorAll('[data-cms-key]').forEach(el=>{
+    const value=values[el.dataset.cmsKey];
+    if(typeof value==='string')el.textContent=value;
+   });
+  }
+ }catch(err){console.warn('Contenu éditorial indisponible',err)}
+}
+
 const old=window.RPE_CONFIG||{};
 let c={...old};
 let team=[...(old.titularMembers||[]).map(name=>({name,status:'Titulaire'})),...(old.substituteMembers||[]).map(name=>({name,status:'Suppléant'})),...(old.unassignedMembers||[]).map(name=>({name,status:'À confirmer'}))];
