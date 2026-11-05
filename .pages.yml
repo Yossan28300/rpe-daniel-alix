@@ -348,3 +348,36 @@ content:
   - name: repere_08
     label: Repère utile 4
     type: text
+
+- name: suivi
+  label: Suivi des questions collectives
+  type: file
+  path: data/suivi.json
+  format: json
+  list: true
+  fields:
+  - name: title
+    label: Sujet collectif (sans nom de famille ni enfant)
+    type: string
+    required: true
+  - name: status
+    label: État du suivi
+    type: select
+    options:
+      values:
+      - value: Reçu
+        label: Reçu
+      - value: En cours d’examen
+        label: En cours d’examen
+      - value: Transmis à l’interlocuteur concerné
+        label: Transmis
+      - value: Réponse obtenue
+        label: Réponse obtenue
+      - value: Clôturé
+        label: Clôturé
+  - name: detail
+    label: Informations publiables
+    type: text
+  - name: published
+    label: Publier ce sujet sur le site
+    type: boolean
